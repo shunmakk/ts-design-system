@@ -1,18 +1,31 @@
 import React from "react";
 import clsx from "clsx";
-import { type ColorKeys, colors } from "../../tokens/colors";
 
 type ButtonVariant = "solid" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
+type ButtonColor = "primary" | "secondary" | "danger" | "success";
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: "px-2 py-1 text-sm",
   md: "px-4 py-2 text-base",
-  lg: "px-6 py-3 text-lg",
+  lg: "px-10 py-5 text-lg",
+};
+const solidColors: Record<ButtonColor, string> = {
+  primary: "text-white bg-blue-500",
+  secondary: "text-white bg-blue-700",
+  danger: "text-white bg-red-500",
+  success: "text-white bg-green-500",
+};
+
+const outlineColors: Record<ButtonColor, string> = {
+  primary: "border border-blue-500 text-blue-500",
+  secondary: "border border-blue-500 text-blue-500",
+  danger: "border border-danger text-red-500",
+  success: "border border-success text-green-500",
 };
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  color?: ColorKeys;
+  color?: ButtonColor;
   size?: ButtonSize;
   variant?: ButtonVariant;
 }
@@ -26,9 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const baseStyle = "rounded font-semibold focus:outline-none";
   const colorStyle =
-    variant === "solid"
-      ? `bg-[${colors[color]}] text-white`
-      : `border border-[${colors[color]}] text-[${colors[color]}]`;
+    variant === "solid" ? solidColors[color] : outlineColors[color];
 
   return (
     <button

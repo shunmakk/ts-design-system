@@ -1,13 +1,15 @@
 import type { Config } from "tailwindcss";
-import { colors } from "./src/tokens/colors";
-import { spacing } from "./src/tokens/spacing";
 
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      colors,
-      spacing,
+      colors: {
+        primary: "#1E40AF",
+        secondary: "#64748B",
+        danger: "#DC2626",
+        success: "#16A34A",
+      },
     },
   },
 } satisfies Config;
