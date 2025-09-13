@@ -1,4 +1,4 @@
-import type { Meta, StoryObj, StoryFn } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 // import { fn } from "storybook/test";
 import { Button } from "../components/ui/Button";
 
@@ -72,7 +72,7 @@ export const Danger: Story = {
 export const AllColors: Story = {
   args: {
     variant: "solid",
-    size: "lg"
+    size: "lg",
   },
 
   render: () => (
@@ -102,7 +102,7 @@ export const AllColors: Story = {
         Success
       </Button>
     </div>
-  )
+  ),
 };
 
 export const AllSize: Story = {
